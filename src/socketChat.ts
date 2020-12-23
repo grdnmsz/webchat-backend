@@ -1,5 +1,5 @@
 import { Socket } from "socket.io";
-import {User} from "./common/types";
+import { User } from "./common/types";
 
 import { addUser, getUser, getUsersRoom, removeUser } from "./users";
 
@@ -10,7 +10,7 @@ const socketRun = (io: Socket) => {
     socket.on(
       "join",
       ({ name, room }: { name: string; room: string }, callback: any) => {
-        const newUser: User = {id:socket.id, name, room};
+        const newUser: User = { id: socket.id, name, room };
         const { error, user } = addUser(newUser);
 
         if (error && !user) {
@@ -27,8 +27,8 @@ const socketRun = (io: Socket) => {
           socket.broadcast.to(user.room).emit("message", {
             text: `${user.name} is in da place!`,
             /* 
-             people (except the user) in the room are notified about a new user
-            different than io.to(user.room).emit(â€¦);
+              people (except the user) in the room are notified about a new user
+              different than io.to(user.room).emit(â€¦);
             */
           });
 

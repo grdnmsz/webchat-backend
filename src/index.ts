@@ -1,6 +1,6 @@
 import express from "express";
 import http from "http";
-import cors from "cors";
+// import cors from "cors";
 
 const socketIo = require("socket.io");
 
