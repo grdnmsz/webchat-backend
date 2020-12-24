@@ -1,0 +1,19 @@
+name: CI
+
+on: push
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Run a one-line script
+        run: echo "Hello, world!"
+      
+      - name: Install 🔧
+        run: npm install
+      
+      - name: Build 🏗️
+        run: npm run build
