@@ -7,7 +7,7 @@ const socketIo = require("socket.io");
 const { routes } = require("./routes");
 const { socketRun } = require("./socketChat");
 
-const PORT = 5000;
+const PORT = process.env.PORT || 5000;
 
 const app = express();
 const httpServer: http.Server = http.createServer(app);
@@ -19,6 +19,6 @@ const io = socketIo(httpServer, {
 routes(app);
 socketRun(io);
 
-httpServer.listen(process.env.PORT || PORT, () => {
+httpServer.listen(PORT, () => {
   console.log(`listening on ${PORT}`);
 });
