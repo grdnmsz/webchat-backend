@@ -4,7 +4,7 @@ import { User } from "./common/types";
 import { addUser, getUser, getUsersRoom, removeUser } from "./users";
 
 const socketRun = (io: Socket) => {
-  io.on("connection", (socket: any) => {
+  io.on("connection", (socket: Socket) => {
     console.log("socketio is runing");
 
     socket.on(

@@ -13,14 +13,11 @@ export const addUser = ({ id, name, room }: User) => {
     return user.name === name && user.room === room;
   });
 
-  console.log(existingUser);
-
   if (existingUser) {
     return { error: "user already exists" };
   } else {
     const newUser: User = { id, name, room };
     users.push(newUser);
-    console.log(users);
     return { user: newUser };
   }
 };
